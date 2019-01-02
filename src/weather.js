@@ -1,8 +1,9 @@
+import myKey from 'config.js';
 const request = require('request');
 
 var getWeather = (lat, lng, callback) => {
   request({
-      url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyAQxkmVE8UXADF7m00SjpiIUARMTinKjbU`,
+      url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${myKey}`,
       json: true
   }, (error, response, body) => {
     if(error){
