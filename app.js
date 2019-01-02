@@ -1,3 +1,4 @@
+const config = require("./src/config.js");
 const yargs = require("yargs");
 const axios = require("axios");
 
@@ -11,7 +12,7 @@ const argv = yargs.options({
 }).help().alias('help', 'h').argv;
 
 var encodedAddress = encodeURIComponent(argv.address);
-var geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyAQxkmVE8UXADF7m00SjpiIUARMTinKjbU`;
+var geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${config.myKey}`;
 
 axios.get(geocodeUrl).then((response) => {
   if(response.data.status === 'ZERO_RESULTS'){
